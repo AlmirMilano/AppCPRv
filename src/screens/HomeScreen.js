@@ -1,17 +1,17 @@
 import React from 'react';
 
 import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StatusBar,
+    Image,
+    StatusBar,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {
-  SafeAreaView,
+    SafeAreaView,
 } from 'react-native-safe-area-context';
 
 import { COLORS, styles } from '../styles/AppStyles';
@@ -249,11 +249,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.footer}>
 
             <Text style={styles.footerText}>
-                Desenvolvido pela Subseção de Análise e
-            </Text>
-
-            <Text style={styles.footerText}>
-                Desenvolvimento de Sistemas
+                Desenvolvido pelo Sd PM Milano
             </Text>
 
             <Text style={styles.footerVersion}>
