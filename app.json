@@ -1,4 +1,17 @@
 {
   "name": "AppCPRv",
-  "displayName": "AppCPRv"
+  "displayName": "AppCPRv",
+  "plugins": [
+    [
+      "expo-navigation-bar",
+      {
+        "enforceContrast": false,
+        "hidden": false,
+        "style": "light"
+      }
+    ]
+  ],
+  "android": {
+    "package": "com.anonymous.appcprv"
+  }
 }
