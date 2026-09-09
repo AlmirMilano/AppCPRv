@@ -1,20 +1,29 @@
 {
-  "name": "AppCPRv",
-  "displayName": "AppCPRv",
+  "name": "CPRv - Operacional",
+  "displayName": "CPRv - Operacional",
   "version": "1.0.0",
   "orientation": "portrait",
-  "userInterfaceStyle": "automatic",
+  "userInterfaceStyle": "light",
+
+  "splash": {
+    "image": "./src/assets/logo-cprv.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#FFFFFF"
+  },
+
   "android": {
     "package": "com.anonymous.appcprv"
   },
+
   "plugins": [
     [
       "expo-navigation-bar",
       {
         "enforceContrast": false,
         "hidden": false,
-        "style": "light"
+        "style": "dark"
       }
-    ]
+    ],
+    "expo-splash-screen"
   ]
 }

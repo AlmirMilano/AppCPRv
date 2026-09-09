@@ -8,260 +8,345 @@ import {
     View,
 } from 'react-native';
 
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import {
-    SafeAreaView,
-} from 'react-native-safe-area-context';
+    COLORS,
+    styles,
+} from '../styles/AppStyles';
 
-import { COLORS, styles } from '../styles/AppStyles';
 
+// =====================================================
+// BOTÃO PADRÃO DO MENU
+// =====================================================
+
+const BotaoMenu = ({
+  icon,
+  texto,
+  texto2,
+  onPress,
+}) => {
+  return (
+    <TouchableOpacity
+      style={styles.menuButton}
+      onPress={onPress}
+      activeOpacity={0.8}
+    >
+
+      <MaterialCommunityIcons
+        name={icon}
+        size={42}
+        color={COLORS.white}
+      />
+        )
+
+      <Text style={styles.menuText}>
+        {texto}
+      </Text>
+
+      {texto2 && (
+        <Text style={styles.menuText}>
+          {texto2}
+        </Text>
+      )}
+
+    </TouchableOpacity>
+  );
+};
+
+
+// =====================================================
+// TELA HOME
+// =====================================================
 
 const HomeScreen = ({ navigation }) => {
 
-    
-    // =====================================================
-    // NAVEGAÇÃO
-    // =====================================================
+  // ===================================================
+  // FUNÇÕES DOS BOTÕES
+  // ===================================================
 
-    const abrirEntrevista = () => {
-        navigation.navigate('Entrevista');
-    };
+  const abrirArvec = () => {
+    console.log('ARVEC');
+  };
 
-    const abrirOndeEstou = () => {
-        navigation.navigate('OndeEstou');
-    };
+  const abrirFisc = () => {
+    console.log('FISC.');
+  };
 
-    const abrirConsultarVeiculo = () => {
-        navigation.navigate('ConsultarVeiculo');
-    };
+  const abrirRecibo = () => {
+    console.log('RECIBO');
+  };
 
-    const abrirConsultarAbordagens = () => {
-        navigation.navigate('ConsultarAbordagens');
-    };
+  const abrirTrucan = () => {
+    console.log('TRUCAN');
+  };
 
-    const sair = () => {
-        console.log('Logout');
-    };
+  const abrirOperacoes = () => {
+    console.log('OPERAÇÕES');
+  };
+
+  const abrirUsuario = () => {
+    console.log('USER OFFLINE');
+  };
+
+  const abrirDetrans = () => {
+    console.log('DETRANS');
+  };
+
+  const abrirTacografo = () => {
+    console.log('TACÓGRAFO');
+  };
+
+  const abrirDebitos = () => {
+    console.log('DÉBITOS');
+  };
+
+  const abrirApps = () => {
+    console.log('APPS');
+  };
+
+  const abrirImpressora = () => {
+    console.log('IMPRESSORA');
+  };
+
+  const abrirBat = () => {
+    console.log('BAT - ACIDENTE DE TRÂNSITO');
+  };
 
 
-    // =====================================================
-    // TELA
-    // =====================================================
+  // ===================================================
+  // LOGOUT
+  // ===================================================
 
-    return (
-        <SafeAreaView
-        style={styles.safeArea}
-        edges={['top', 'bottom']}
-        >
+  const sair = () => {
+    console.log('Logout');
+  };
+
+
+  // ===================================================
+  // RENDER
+  // ===================================================
+
+  return (
+    <SafeAreaView
+      style={styles.safeArea}
+      edges={['top', 'bottom']}
+    >
+
+      <StatusBar
+        hidden={false}
+        translucent={false}
+        backgroundColor={COLORS.primary}
+        barStyle="light-content"
+      />
+
+
+      <View style={styles.homeContainer}>
+
 
         {/* =================================================
-            STATUS BAR
+            CABEÇALHO
         ================================================= */}
 
-        <StatusBar
-            hidden={false}
-            translucent={false}
-            backgroundColor={COLORS.primary}
-            barStyle="light-content"
-        />
+        <View style={styles.header}>
+
+          {/* TÍTULO */}
+
+          <View style={styles.headerTitleContainer}>
+
+            <Text style={styles.headerTitle}>
+              CPRv -
+            </Text>
+
+            <Text style={styles.headerTitle}>
+              Operacional
+            </Text>
+
+          </View>
 
 
-        {/* =================================================
-            CONTAINER PRINCIPAL
-        ================================================= */}
+          {/* LOGOS */}
 
-        <View style={styles.homeContainer}>
-
-
-            {/* =================================================
-                CABEÇALHO
-            ================================================= */}
-
-            <View style={styles.header}>
-
-            {/* TÍTULO */}
-
-            <View style={styles.headerTitleContainer}>
-
-                <Text style={styles.headerTitle}>
-                CPRvBM
-                </Text>
-
-                <Text style={styles.headerTitle}>
-                Operacional
-                </Text>
-
-            </View>
+          <Image
+            source={require('../assets/logo.png')}
+            style={styles.headerLogo}
+            resizeMode="contain"
+          />
 
 
-            {/* LOGOS */}
+          {/* USUÁRIO */}
 
-            <Image
-                source={require('../assets/logo.png')}
-                style={styles.headerLogo}
-                resizeMode="contain"
+          <Text style={styles.userName}>
+            ALMIR
+          </Text>
+
+
+          {/* LOGOUT */}
+
+          <TouchableOpacity
+            style={styles.logoutButton}
+            onPress={sair}
+            activeOpacity={0.7}
+          >
+
+            <MaterialCommunityIcons
+              name="logout"
+              size={34}
+              color={COLORS.white}
             />
 
-
-            {/* USUÁRIO */}
-
-            <Text style={styles.userName}>
-                ALMIR
-            </Text>
-
-
-            {/* SAIR */}
-
-            <TouchableOpacity
-                style={styles.logoutButton}
-                onPress={sair}
-                activeOpacity={0.7}
-            >
-
-                <MaterialCommunityIcons
-                name="logout"
-                size={34}
-                color={COLORS.white}
-                />
-
-            </TouchableOpacity>
-
-            </View>
-
-
-            {/* =================================================
-                CONTEÚDO
-            ================================================= */}
-
-            <View style={styles.homeContent}>
-
-            {/* PRIMEIRA LINHA */}
-
-            <View style={styles.menuRow}>
-
-                {/* ENTREVISTA */}
-
-                <TouchableOpacity
-                style={styles.menuButton}
-                onPress={abrirEntrevista}
-                activeOpacity={0.8}
-                >
-
-                <MaterialCommunityIcons
-                    name="account-outline"
-                    size={38}
-                    color={COLORS.white}
-                />
-
-                <Text style={styles.menuText}>
-                    Entrevista
-                </Text>
-
-                </TouchableOpacity>
-
-
-                {/* ONDE ESTOU */}
-
-                <TouchableOpacity
-                style={styles.menuButton}
-                onPress={abrirOndeEstou}
-                activeOpacity={0.8}
-                >
-
-                <MaterialCommunityIcons
-                    name="crosshairs-gps"
-                    size={40}
-                    color={COLORS.white}
-                />
-
-                <Text style={styles.menuText}>
-                    Onde Estou?
-                </Text>
-
-                </TouchableOpacity>
-
-
-                {/* CONSULTAR VEÍCULO */}
-
-                <TouchableOpacity
-                style={styles.menuButton}
-                onPress={abrirConsultarVeiculo}
-                activeOpacity={0.8}
-                >
-
-                <MaterialCommunityIcons
-                    name="car-outline"
-                    size={40}
-                    color={COLORS.white}
-                />
-
-                <Text style={styles.menuText}>
-                    Consultar
-                </Text>
-
-                <Text style={styles.menuText}>
-                    Veículo
-                </Text>
-
-                </TouchableOpacity>
-
-            </View>
-
-
-            {/* SEGUNDA LINHA */}
-
-            <View style={styles.menuRow}>
-
-                {/* CONSULTAR ABORDAGENS */}
-
-                <TouchableOpacity
-                style={styles.menuButton}
-                onPress={abrirConsultarAbordagens}
-                activeOpacity={0.8}
-                >
-
-                <MaterialCommunityIcons
-                    name="format-list-bulleted"
-                    size={40}
-                    color={COLORS.white}
-                />
-
-                <Text style={styles.menuText}>
-                    Consultar
-                </Text>
-
-                <Text style={styles.menuText}>
-                    Abordagens
-                </Text>
-
-                </TouchableOpacity>
-
-            </View>
-
-            </View>
-
-
-            {/* =================================================
-                RODAPÉ
-            ================================================= */}
-
-            <View style={styles.footer}>
-
-            <Text style={styles.footerText}>
-                Desenvolvido pelo Sd PM Milano
-            </Text>
-
-            <Text style={styles.footerVersion}>
-                Versão 1.0.0
-            </Text>
-
-            </View>
+          </TouchableOpacity>
 
         </View>
 
-        </SafeAreaView>
-    );
+
+        {/* =================================================
+            MENU PRINCIPAL
+        ================================================= */}
+
+        <View style={styles.homeContent}>
+
+
+          {/* =================================================
+              LINHA 1
+          ================================================= */}
+
+          <View style={styles.menuRow}>
+
+            <BotaoMenu
+              icon="tow-truck"
+              texto="Arvec"
+              onPress={abrirArvec}
+            />
+
+            <BotaoMenu
+              icon="clipboard-edit-outline"
+              texto="Fisc."
+              onPress={abrirFisc}
+            />
+
+            <BotaoMenu
+              icon="file-document-outline"
+              texto="Recibo"
+              onPress={abrirRecibo}
+            />
+
+          </View>
+
+
+          {/* =================================================
+              LINHA 2
+          ================================================= */}
+
+          <View style={styles.menuRow}>
+
+            <BotaoMenu
+              icon="bullhorn-outline"
+              texto="Trucan"
+              onPress={abrirTrucan}
+            />
+
+            <BotaoMenu
+              icon="traffic-cone"
+              texto="Operações"
+              onPress={abrirOperacoes}
+            />
+
+            <BotaoMenu
+              icon="account-circle-outline"
+              texto="User"
+              texto2="Offline"
+              onPress={abrirUsuario}
+            />
+
+          </View>
+
+
+          {/* =================================================
+              LINHA 3
+          ================================================= */}
+
+          <View style={styles.menuRow}>
+
+            <BotaoMenu
+              icon="file-search-outline"
+              texto="Detrans"
+              onPress={abrirDetrans}
+            />
+
+            <BotaoMenu
+              icon="timer-outline"
+              texto="Tacógrafo"
+              onPress={abrirTacografo}
+            />
+
+            <BotaoMenu
+              icon="cash-multiple"
+              texto="Débitos"
+              onPress={abrirDebitos}
+            />
+
+          </View>
+
+
+          {/* =================================================
+              LINHA 4
+          ================================================= */}
+
+          <View style={styles.menuRow}>
+
+            <BotaoMenu
+              icon="cellphone"
+              texto="APPS"
+              onPress={abrirApps}
+            />
+
+            <BotaoMenu
+              icon="printer-outline"
+              texto="Impressora"
+              onPress={abrirImpressora}
+            />
+
+            {/* =================================================
+                BAT
+                ÍCONE TEMPORÁRIO
+            ================================================= */}
+
+            <BotaoMenu
+                icon="car-emergency"
+                texto="BAT"
+                onPress={abrirBat}
+            />
+
+          </View>
+
+
+        </View>
+
+
+        {/* =================================================
+            RODAPÉ
+        ================================================= */}
+
+        <View style={styles.footer}>
+
+          <Text style={styles.footerText}>
+            Desenvolvido pelo Sd PM Milano
+          </Text>
+
+          <Text style={styles.footerVersion}>
+            Versão 1.0.0
+          </Text>
+
+        </View>
+
+
+      </View>
+
+    </SafeAreaView>
+  );
 };
 
 

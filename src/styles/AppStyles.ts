@@ -1,6 +1,6 @@
 import {
-  StyleSheet,
   Dimensions,
+  StyleSheet,
 } from 'react-native';
 
 
@@ -183,7 +183,7 @@ export const styles = StyleSheet.create({
 
     flexDirection: 'row',
 
-    marginBottom: 29,
+    marginBottom: 15,
   },
 
 
@@ -194,7 +194,7 @@ export const styles = StyleSheet.create({
   menuButton: {
     width: BUTTON_WIDTH,
 
-    height: 116,
+    height: 100,
 
     backgroundColor: COLORS.primary,
 
